@@ -1,13 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/time.h>
+#include "sort-list.h"
 
-typedef struct __list {
+struct __list {
     int data;
     struct __list *next;
-} list;
+};
 
-list *sort(list *start) {
+list *sort(list *start)
+{
     // If there is no node or only one node, just return
     if (!start || !start->next)
         return start;
@@ -18,13 +17,13 @@ list *sort(list *start) {
     // This will also cut off start pointer
     left->next = NULL;
 
-    // Sort left
+    // sort left
     left = sort(left);
-    // Sort right
+    // sort right
     right = sort(right);
 
-    // While there are still something in left or right, keep sorting
-    for (list *merge = NULL; left || right; ) {
+    // While there are still something in left or right, keep sort_listing
+    for (list *merge = NULL; left || right;) {
         // If there is nothing in right or
         // there are something in both but left one is smaller
         if (!right || (left && left->data < right->data)) {
@@ -55,49 +54,32 @@ list *sort(list *start) {
             right = right->next;
         }
     }
-    // Return sorted result
+    // Return sort_listed result
     return start;
 }
 
-list *insert(list* l, int d){
+void insert_node(list **l, int d)
+{
     list *tmp = malloc(sizeof(list));
     tmp->data = d;
-    tmp->next = l;
-    return tmp;
+    tmp->next = *l;
+    *l = tmp;
 }
 
-void print(list *l){
-    while(l){
-        printf("%d\n", l->data);
-        l = l->next;
-    }
-}
-
-void delete(list *l){
+void delete_list(list *l)
+{
     list *tmp;
-    while(l){
+    while (l) {
         tmp = l->next;
         free(l);
         l = tmp;
     }
 }
 
-int main(){
-    list *l = NULL;
-    int d;
-    while(scanf("%d", &d) != EOF){
-        l = insert(l, d);
+void print_list(list *l)
+{
+    while (l) {
+        printf("%d\n", l->data);
+        l = l->next;
     }
-    struct timeval tv1, tv2;
-    double time;
-
-    gettimeofday(&tv1, NULL);
-    l = sort(l);
-    gettimeofday(&tv2, NULL);
-    time = (tv2.tv_usec - tv1.tv_usec) * 0.001;
-
-    printf("Elapsed time: %.3lf ms\n", time);
-    delete(l);
-
-    return 0;
 }

@@ -1,6 +1,7 @@
 *
 !.gitignore
 !*.c
+!*.h
 !*.sh
 !*.in
 !README.md
