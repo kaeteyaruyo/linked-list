@@ -55,7 +55,7 @@ void insert_node(list **l, int d)
 {
     list *tmp = malloc(sizeof(list));
     tmp->data = d;
-    if (!l) {
+    if (!(*l)) {
         tmp->prev = tmp;
         tmp->next = tmp;
     } else {
