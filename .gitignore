@@ -1,8 +1,7 @@
-*
-!.gitignore
-!*.c
-!*.h
-!*.sh
-!*.in
-!README.md
-!Makefile
+*.o
+sort-singly
+sort-circular-doubly
+sort-optimize
+sort-linux
+sort-iterative
+sort-xor
