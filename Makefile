@@ -9,11 +9,17 @@ $(GIT_HOOKS):
 	@scripts/install-git-hooks
 	@echo
 
+test-optimize: rand sort-optimize
+	./test/optimize-minsize.sh
+
 $(EXE): % : sort-list.o %.o
 	$(CC) $(CFLAGS) $^ -o $@
 
 %.o: %.c sort-list.h
 	$(CC) $(CFLAGS) -c $<
 
+rand: rand.c
+	$(CC) $(CFLAGS) rand.c -o rand
+
 clean:
-	rm -f $(EXE) *.o
+	rm -f $(EXE) rand *.o *.png **/*.txt
