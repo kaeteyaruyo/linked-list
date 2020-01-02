@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O0 -g -Wall -Werror
+CFLAGS = -O3 -g -Wall -Werror
 EXE = sort-singly sort-circular-doubly sort-optimize sort-linux sort-iterative sort-xor
 
 GIT_HOOKS := .git/hooks/applied
@@ -25,4 +25,4 @@ rand: rand.c
 	$(CC) $(CFLAGS) rand.c -o rand
 
 clean:
-	rm -f $(EXE) rand *.o *.png **/*.txt
+	rm -f $(EXE) rand *.o **/*.png **/*.txt

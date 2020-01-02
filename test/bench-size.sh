@@ -2,7 +2,6 @@
 
 rm -f test/bench-size.txt
 touch test/bench-size.txt
-make all
 testlist="sort-singly sort-circular-doubly sort-optimize sort-linux sort-iterative sort-xor"
 for i in {1000..30000..1000};
 do
