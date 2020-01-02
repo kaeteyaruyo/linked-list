@@ -9,6 +9,9 @@ $(GIT_HOOKS):
 	@scripts/install-git-hooks
 	@echo
 
+bench-size: rand $(EXE)
+	./test/bench-size.sh
+
 test-optimize: rand sort-optimize
 	./test/optimize-minsize.sh
 

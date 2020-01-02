@@ -21,7 +21,7 @@ int main()
     gettimeofday(&tv2, NULL);
     time = getTime(tv2) - getTime(tv1);
 
-    printf("%.3lf\n", (double) (time * 0.001));
+    printf("%.3lf ", (double) (time * 0.001));
     delete_list(l);
 
     return 0;
