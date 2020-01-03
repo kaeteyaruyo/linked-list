@@ -25,4 +25,4 @@ rand: rand.c
 	$(CC) $(CFLAGS) rand.c -o rand
 
 clean:
-	rm -f $(EXE) rand *.o **/*.png **/*.txt
+	rm -f $(EXE) rand *.o *.png **/*.png *.txt **/*.txt

@@ -20,3 +20,4 @@ do
     done
     printf '\n' >> test/bench-size.txt
 done
+gnuplot test/bench-size.gp

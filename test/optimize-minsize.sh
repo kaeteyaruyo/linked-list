@@ -2,7 +2,7 @@
 
 rm -f test/optimize-minsize.txt
 touch test/optimize-minsize.txt
-for i in {1..1024};
+for i in {1..2048};
 do
     gcc -D MIN_SIZE=$i -o sort-optimize sort-list.c sort-optimize.c
     sum=0
